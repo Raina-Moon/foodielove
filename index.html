@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>푸드파이터</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <style>
+        /* 구글 폰트 import url 넣어주세요. */
+        /* 구글 폰트 CSS rules를 전체 적용해 주세요. */
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+        body {
+            background-color: white;
+            color: black;
+        }
+
+        .header {
+            background-size: cover;
+            background-image:
+                url('https://images.unsplash.com/photo-1531697218799-ed0ae884c6c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80');
+            background-position: right;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-sizing: border-box;
+            padding : 10px;
+        }
+
+        .header>h1 {
+            margin: 0;
+            font-size: 40px;
+            font-family: "Gowun Dodum", sans-serif;
+            font-weight:bold;
+            font-style:normal;}
+
+
+        .header>div {
+            font-size: 80px;
+            margin-top: 10px;
+        }
+
+        .form-button {
+            width: 150px;
+            height: 40px;
+            background-color: transparent;
+            border: 1px solid tr;
+            color: black;
+            font-size: 15px;
+            margin: 20px 10px 0px 0px;
+        }
+
+        .form-button:hover {
+            border: 2px solid black;
+        }
+
+        .info-button {
+            margin: 20px 0 0 15px;
+            height: 40px;
+            font-size: 14px;
+        }
+
+        .form-floating input,
+        .form-floating textarea {
+            color: black;
+            background-color: white;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        .button2 {
+
+    text-align: right;
+    margin-top: 10px;
+        }
+
+        .button2>button {
+            margin-right: 10px;
+            cursor: pointer;
+
+        }
+
+
+        .mycards {
+            width: 100%;
+            margin: 30px auto;
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: space-around;
+            max-width: 1200px;
+        }
+
+        #savecard > .card {
+            border-radius: 30px;
+            background-color: white;
+            border: none;
+            margin-bottom: 20px;
+            width: 20%; 
+            box-sizing: border-box;
+                }
+
+        .card-img-top {
+            object-fit: cover;
+            height: 250px;
+            border-radius: 20px;
+        }
+
+        .card-title {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .card-body {
+            border: blanchedalmond 2px solid;
+            border-radius: 20px;
+        }
+
+        .card-text {
+            color: black;
+        }
+
+        .comment {
+            color: black;
+        }
+
+        .play-button {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 15px;
+        }
+
+        a.nav-link {
+            color: #F17228;
+            font-size: large;
+        }
+
+        .icon {
+            height: 50px;
+        }
+
+        .card-button {
+            background-color: orange;
+            color: white;
+            text-align: center;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .card-title {
+            font-weight: bold;
+        }
+
+        .card-button> :hover {
+            background-color: darkorange;
+        }
+
+        #input-card {
+            position: absolute;
+    right: 0; /* 오른쪽에 맞춤 */
+    top: 50%; /* 세로 중앙에 맞춤 */
+    transform: translateY(-50%); /* 정확한 세로 중앙 맞춤 */
+    background-color: white;
+    border-radius: 10px;
+    width: 400px;
+    font-size: 15px;
+    padding: 5px;
+    box-shadow: 0px 0px 3px 0px transparent;
+    background-color: white;
+    margin: -2px 3px 0 0;
+        }
+
+        .form-floating input,
+        .form-floating textarea {
+            color: black;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .form-floating label {
+            color: #333;
+        }
+
+        .input-group button,
+        .input-group select {
+            background-color: rgb(168, 161, 161);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .input-group button:hover,
+        .input-group select:hover {
+            background-color: gray;
+        }
+
+        .button2 {
+            text-align: right;
+        }
+
+        .button2 button {
+            background-color: #F17228;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button2 button:hover {
+            background-color: #f3620f;
+        }
+
+        .jumbotron-message {
+            margin-left: 150px;
+            font-size: 1500px;
+        }
+
+        .card{
+            display: table;
+            border-color: white;
+        }
+        
+        .header > .headline {
+            margin: 50px;
+            color: #001F3F;
+        }
+
+        .header > .intro {
+            margin-left: 50px;
+            color: #181C14;
+        }
+        
+        img {
+            margin-bottom: 10px;
+        }
+
+    </style>
+    <script>
+        function makeCard() {
+        let image = $('#imgaddress').val();
+        let title = $('#foodtitle').val();
+        let star = $('#star').val();
+        let comment= $('#comment').val();
+        let address = $('#Address').val();
+
+        let temp_html = `
+        <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="${image}" class="card-img-top" alt="Mediterranean dishes">
+        <div class="card-body">
+          <h5 class="card-title">${title}</h5>
+          <p class="card-text">${star}</p>
+          <p class="card-text">${comment}</p>
+        </div>
+        <div class="card-body">
+          <a href="..." class="card-link">Contact</a>
+          <a href="${address}" class="card-link">Address</a>
+        </div>
+      </div>
+      </div>`;
+
+      $('#card').append(temp_html);
+
+      $('#imgaddress').val('');
+        $('#foodtitle').val('');
+        $('#star').val('별점 선택');
+        $('#comment').val('');
+        $('#Address').val('');
+    }
+        </script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <img src="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/food.png" class="icon"></li>
+                    <li><a href="#" class="nav-link px-2 text-danger">Foodcourt</a></li>
+                    <li><a href="#" class="nav-link px-2 ">홈</a></li>
+                    <li><a href="#" class="nav-link px-2 ">한식</a></li>
+                    <li><a href="#" class="nav-link px-2 ">일식</a></li>
+                    <li><a href="#" class="nav-link px-2 ">중식</a></li>
+                    <li><a href="#" class="nav-link px-2 ">양식</a></li>
+                </ul>
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
+                        aria-label="Search">
+                </form>
+                <div class="text-end">
+                    <button type="button" class="btn btn-warning me-2">Login</button>
+                    <button type="button" class="btn btn-warning">Sign-up</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 점보 트론 적용 jumbotron -->
+    <!-- - https://getbootstrap.com/
+    - Bootstrap 사이트에서 jumbotron가져와 vscode에 붙여 넣어주세요.
+    - 배경 이미지 적용을 위해 <div class="header"> 로 감싸주세요.
+    - jumbotron의 내용을 예시사진과 똑같게 내용을 변경해 주세요.
+        - 필요 없는 버튼, div를 적절하게 삭제
+    - jumbotron <h1> 태그안에 `Blank Han Sans` 폰트 스타일을 적용해 주세요. -->
+        <div class="header">
+            <h1 class="headline">스파르타 푸드파이터</h1><br/><br/>
+            <p class="intro">먹고, 싸우고, 기록하라! <br />당신만의 최강 음식 리스트를 스파르타 푸드파이터에서 남기세요. <br />최고의 맛을 찾아 떠나는 당신의 전투가 지금 시작됩니다!</p>
+        <div class="post" id="input-card">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="imgaddress" placeholder="name@example.com">
+                    <label for="imgaddress">음식 이미지 주소</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input style="margin:-10px 0 0 0" type="text" class="form-control" id="foodtitle" placeholder="영화 제목">
+                    <label for="foodtitle">음식명</label>
+                </div>
+                <div style="margin:-20px 0 0 0" class="input-group mb-3">
+                    <button class="btn-star" type="button">별점</button>
+                    <select class="form-select" id="star" aria-label="Example select with button addon">
+                        <option selected>별점 선택</option>
+                        <option value="⭐">⭐</option>
+                        <option value="⭐⭐">⭐⭐</option>
+                        <option value="⭐⭐⭐">⭐⭐⭐</option>
+                        <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+                        <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+                    </select>
+                </div>
+                <div class="form-floating" style="height : 60px;">
+                    <textarea style="margin:-10px 0 0 0" class="form-control" placeholder="Leave a comment here" id="comment"></textarea>
+                    <label for="comment">추천 이유</label>
+                </div>
+                <div class="form-floating" style="height : 50px;">
+                    <textarea class="form-control" placeholder="Address" id="Address"></textarea>
+                    <label for="Address">주소</label>
+                </div>
+                <div class="button2">
+                    <button onclick="makeCard()" type="button" class="btn btn-danger" id="addBtn"> 기록하기 </button>
+                </div>
+            </div>
+        </div>
+        <!-- 부트스트랩 인풋 박스 적용-->
+
+    <!-- 부트스트랩 카드 적용-->
+
+        <!-- - https://getbootstrap.com/
+        - Bootstrap 사이트에서 cards 가져와 vscode에 붙여 넣기
+        - *Docs → Card → Grid cards에서 3번째 코드입니다.*
+        - <button> 태그를 생성해 주세요.
+        - <button> 태그안에 `card-button` 클래스를 부여해 주세요.
+        - 카드에 내용은 자유롭게 채워 주세요. -->
+    <div class="mycards" id="savecard">
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="card">
+            <div class="col">
+        <div class="card" style="width: 18rem;">
+        <img src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Stacked pancakes">
+        <div class="card-body">
+          <h5 class="card-title">pancakes</h5>
+          <p class="card-text">stacked pancakes topped with caramel sauce and fruit.</p>
+        </div>
+        <p class="card-text">⭐⭐⭐⭐</p>
+        <div class="card-body">
+          <a href="http://ophanaheim.com/" class="card-link">Contact</a>
+          <a href="https://www.google.com/maps/place/The+Original+Pancake+House/@33.8072483,-118.3014027,10z/data=!4m6!3m5!1s0x80dcd646dddbfd11:0xb15c71e14d685561!8m2!3d33.8388995!4d-117.8980932!16s%2Fg%2F1tngqlfz?hl=en&entry=ttu&g_ep=EgoyMDI0MDkyOS4wIKXMDSoASAFQAw%3D%3D" class="card-link">Address</a>
+        </div>
+      </div>
+    </div>
+      <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Fresh Acai ball">
+        <div class="card-body">
+          <h5 class="card-title">Acai ball</h5>
+          <p class="card-text">super tangy and refreshing!</p>
+        </div>
+        <p class="card-text">⭐⭐⭐⭐⭐</p>
+        <div class="card-body">
+          <a href="http://www.venicemtl.com/" class="card-link">Contact</a>
+          <a href="https://www.google.com/maps/place/Venice+Mtl+Vieux-Montreal/@45.5033733,-73.5679184,15.38z/data=!4m6!3m5!1s0x4cc91a59c69e4885:0x85bc3755a5552753!8m2!3d45.5032017!4d-73.5563857!16s%2Fg%2F11cmxxsntd?entry=ttu&g_ep=EgoyMDI0MDkyOS4wIKXMDSoASAFQAw%3D%3D" class="card-link">Address</a>
+        </div>
+      </div>
+    </div>
+      <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="https://images.pexels.com/photos/3434523/pexels-photo-3434523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Mediterranean dishes">
+        <div class="card-body">
+          <h5 class="card-title">Mediterranean dishes</h5>
+          <p class="card-text">shrimp was bursting with fresh flavors and perfectly seasoned.</p>
+        </div>
+        <p class="card-text">⭐⭐⭐⭐</p>
+        <div class="card-body">
+          <a href="https://www.facebook.com/DriftwoodRestaurantCyprus/menu" class="card-link">Contact</a>
+          <a href="https://www.google.com/maps/place/Driftwood+-+Restaurant,+Bar+%26+Beach/@35.351315,33.1671524,17z/data=!3m1!4b1!4m6!3m5!1s0x14de0dde047ce93f:0xcf2e7bd02e247964!8m2!3d35.3513107!4d33.1697273!16s%2Fg%2F11rc7wy920?hl=en&entry=ttu&g_ep=EgoyMDI0MDkyOS4wIKXMDSoASAFQAw%3D%3D" class="card-link">Address</a>
+        </div>
+      </div>
+      </div>
+</div>
+</div>
+
+    <div class="container2">
+        <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+            <div class="col mb-3">
+                <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+                </a>
+                <p class="text-body-secondary">©Teamsparta 2024</p>
+            </div>
+            <div class="col mb-3">
+            </div>
+            <div class="col mb-3">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                </ul>
+            </div>
+
+            <div class="col mb-3">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                </ul>
+            </div>
+
+            <div class="col mb-3">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
